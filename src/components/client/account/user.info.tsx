@@ -2,7 +2,7 @@ import { useCurrentApp } from "@/components/context/app.context"
 import { updateUserInfoAPI, uploadFileAPI } from "@/services/api"
 import { App, Avatar, Button, Col, Form, Input, Row, Upload, type FormProps } from "antd"
 import { useEffect, useState } from "react"
-import { UploadRequestOption as RcCustomRequestOptions } from 'rc-upload/lib/interface';
+import type { UploadRequestOption as RcCustomRequestOptions } from 'rc-upload/lib/interface';
 import type { UploadChangeParam } from "antd/es/upload";
 import { AntDesignOutlined, UploadOutlined } from "@ant-design/icons";
 

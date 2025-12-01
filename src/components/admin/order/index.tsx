@@ -13,10 +13,11 @@ type TSearch = {
     name: string,
     createdAt: string,
     createdAtRange: string
+    address: string
 }
 
 const TableOrder = () => {
-    const actionRef = useRef<ActionType>();
+    const actionRef = useRef<ActionType | null>(null);
     const [meta, setMeta] = useState({
         current: 1,
         pageSize: 5,
@@ -25,7 +26,7 @@ const TableOrder = () => {
     })
 
     const [openViewDetail, setOpenViewDetail] = useState<boolean>(false);
-    const [dataViewDetail, setDataViewDetail] = useState<IBookTable | null>(null);
+    const [dataViewDetail, setDataViewDetail] = useState<IOrderTable | null>(null);
 
 
     const columns: ProColumns<IOrderTable>[] = [

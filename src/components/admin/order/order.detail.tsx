@@ -3,8 +3,8 @@ import { Drawer } from "antd"
 interface IProps {
     openViewDetail: boolean
     setOpenViewDetail: (v: boolean) => void
-    dataViewDetail: IBookTable | null
-    setDataViewDetail: (v: IBookTable | null) => void
+    dataViewDetail: IOrderTable | null
+    setDataViewDetail: (v: IOrderTable | null) => void
 }
 const DetailOrder = (props: IProps) => {
     const { openViewDetail, setOpenViewDetail, dataViewDetail, setDataViewDetail } = props

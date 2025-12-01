@@ -3,9 +3,9 @@ import { MAX_UPLOAD_IMAGE_SIZE } from "@/services/helper";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { Input, Modal, Form, App, Divider, InputNumber, Select, Row, Col, Upload } from "antd"
 import type { FormProps, GetProp, UploadFile, UploadProps } from 'antd';
-import type { UploadChangeParam } from "antd/es/upload";
+import type { RcFile, UploadChangeParam } from "antd/es/upload";
 import { useEffect, useState } from "react";
-import { UploadRequestOption as RcCustomRequestOptions } from 'rc-upload/lib/interface';
+import type { UploadRequestOption as RcCustomRequestOptions } from 'rc-upload/lib/interface';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -22,8 +22,6 @@ type FieldType = {
     quantity: number;
     thumbnail: any;
     slider: any;
-    type: string;
-    size: number;
 };
 
 interface IProps {
@@ -139,7 +137,7 @@ const UpdateBook = (props: IProps) => {
             reader.onerror = error => reject(error);
         });
 
-    const beforeUpload = (file: FieldType) => {
+    const beforeUpload = (file: RcFile) => {
         const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
         if (!isJpgOrPng) {
             message.error('Bạn chỉ có thể tải lên file JPG/PNG!');

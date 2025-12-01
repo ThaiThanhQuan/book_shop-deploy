@@ -15,7 +15,7 @@ type TSearch = {
 }
 
 const TableBook = () => {
-    const actionRef = useRef<ActionType>();
+    const actionRef = useRef<ActionType | null>(null);
     const [meta, setMeta] = useState({
         current: 1,
         pageSize: 5,
