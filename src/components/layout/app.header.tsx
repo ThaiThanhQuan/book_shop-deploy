@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaReact } from 'react-icons/fa'
+import { FaBook, FaReact } from 'react-icons/fa'
 import { FiShoppingCart } from 'react-icons/fi';
 import { VscSearchFuzzy } from 'react-icons/vsc';
 import { Divider, Badge, Drawer, Avatar, Popover, Empty } from 'antd';
@@ -110,19 +110,57 @@ const AppHeader = (props: IProps) => {
                         <div className="page-header__toggle" onClick={() => {
                             setOpenDrawer(true)
                         }}>☰</div>
-                        <div className='page-header__logo'>
-                            <span className='logo'>
-                                <span onClick={() => navigate('/')}> <FaReact className='rotate icon-react' />Book Shop</span>
-
-                                <VscSearchFuzzy className='icon-search' />
+                        <div
+                            className="page-header__logo"
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '12px',
+                                flexWrap: 'wrap',
+                            }}
+                        >
+                            <span
+                                onClick={() => navigate('/')}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: isMobile ? '6px' : '8px',
+                                    fontSize: isMobile ? '16px' : '20px',
+                                    fontWeight: 600,
+                                    cursor: 'pointer',
+                                }}
+                            >
+                                <FaBook style={{ color: '#4A90E2', fontSize: isMobile ? '22px' : '28px' }} />
+                                {!isMobile && 'Book Shop'}
                             </span>
-                            <input
-                                className="input-search" type={'text'}
-                                placeholder="Bạn tìm gì hôm nay"
-                                value={props.searchTerm}
-                                onChange={(e) => props.setSearchTerm(e.target.value)}
-                            />
+
+                            <span
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    border: '1px solid #ccc',
+                                    borderRadius: '4px',
+                                    padding: '4px 8px',
+                                    gap: '6px',
+                                    flex: 1,
+                                }}
+                            >
+                                <VscSearchFuzzy style={{ fontSize: isMobile ? '20px' : '24px', color: '#333' }} />
+                                <input
+                                    type="text"
+                                    placeholder="Bạn tìm gì hôm nay"
+                                    value={props.searchTerm}
+                                    onChange={(e) => props.setSearchTerm(e.target.value)}
+                                    style={{
+                                        border: 'none',
+                                        outline: 'none',
+                                        flex: 1,
+                                        fontSize: isMobile ? '14px' : '16px',
+                                    }}
+                                />
+                            </span>
                         </div>
+
 
                     </div>
                     <nav className="page-header__bottom">
